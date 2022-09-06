@@ -1,0 +1,44 @@
+
+
+.item img{
+    width: 64px;
+}
+.item{
+    margin:0px 15px;
+    text-align: center;
+}
+
+.item a:hover{
+    color: deeppink;
+}
+del{
+    color:red;
+}
+span{
+    color:green;
+    font-weight: bold;
+}
+.profile-pic {
+	position: relative;
+	display: inline-block;
+}
+
+.profile-pic:hover .edit {
+	display: block;
+}
+
+.edit {
+	padding-top: 7px;	
+	padding-right: 7px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: none;
+}
+
+.edit a {
+	color: rgb(188, 12, 12);
+}
+a{
+	cursor: pointer;
+}

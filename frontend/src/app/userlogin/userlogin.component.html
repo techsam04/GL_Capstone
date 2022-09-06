@@ -1,0 +1,36 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>User Login</h1>
+                    <h6>Please Enter mail & Password!!</h6>
+                </div> 
+                    <form #userform="ngForm" (ngSubmit)="loginUserInfo(userform)">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1" class="form-label">Email</label><br/>
+                          <input type="text" name="email" id="exampleInputEmail1" class="form-control mt-1 mb-1" aria-describedby="emailHelp"  [(ngModel)]="email" >
+                          <div id="emailHelp" style="color: white;" class="form-text">We'll never share your email with anyone else.</div>
+                        </div><br>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1" class="form-label">Password</label><br/>
+                          <input type="password" name="password" class="form-control mt-1 mb-1" id="exampleInputPassword1"  [(ngModel)]="password">
+                        </div>
+                        <button type="submit"  class="btn btn-success mt-3">Login</button>
+                      </form>
+                      <a  style="color:#fff;margin-top: 10px;" routerLink="/userregister">New User? Click to SignUp!!</a>
+                <br/>
+                      <!-- <div class="text-center">
+                      <button style=" float:left;" routerLink="/userregister" type="submit"  class="btn btn-primary mx-2" (click)="logoutUser(email)">Logout</button>
+                      <br/>
+                      <span style="color: red;font-size:20px;" >{{logoutMsg}}</span>
+                      </div>  -->
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+               
+          

@@ -1,0 +1,102 @@
+<app-admin></app-admin>
+<div id="content">
+
+<div class="container">
+    <div class="col-md-8-content-center-mt-3">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Created Date</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Update</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+            <td>{{user.email}}</td>
+            <td>{{user.password }}</td>
+            <td>{{dd| date:'short'}}</td>
+            <td><a (click)="deleteUser(user.email)">
+                <i id="delete" class="fas fa-trash"></i>
+              </a>
+            </td>
+            <td><a (click)="updateUser(user)">
+                <i id="update" class="fas fa-edit"></i>
+              </a>
+            </td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+</div>
+
+
+
+
+
+<div>
+    <!--<div class="container" >
+        <div class="div-left">
+                <h1>User Register</h1>
+                <form #UserRef="ngForm" (ngSubmit)="storeUser(UserRef)">
+                      <label>Email</label><br/>
+                    <input type="text" name="email" ngModel/><br/>
+                    <label>Password</label><br/>
+                    <input type="text" name="password"  ngModel/><br/>
+                    <button style="margin:5px;" type="submit" class="btn btn-primary ">Register</button>
+                    <button style="margin:5px;" type="reset" class="btn btn-primary ">Reset</button> 
+    <br/>
+</form>
+    <span style="color:red;font-size: 20px;">{{storeMsg}}</span>
+</div>
+</div> -->
+<!--<input type="button" value= "Display User" (click)="loadUsers()">-->
+
+<!--<div class="container" >
+    <div class="div-right">
+    <h1>User Login</h1>
+    <form (ngSubmit)= "loginUserInfo()">
+        <label>Email</label><br/>
+        <input type="text" name="email" [(ngModel)]="email"  /><br/>
+        <label>Password</label><br/>
+        <input type="text" name="password"[(ngModel)]="password"/><br/>
+        <button  style="margin:5px;"  type="submit" class="btn btn-primary">Login</button>
+        <button style="margin:5px;" type="reset" class="btn btn-primary ">Reset</button>
+    </form>
+    <br/>
+    <span style="color: red;font-size:20px;">{{loginMsg}}</span>
+    </div>
+    </div> -->
+    <!-- <h1>User Details</h1><br/> -->
+    <div *ngIf="flag">
+        <div class="global-container">
+            <div class="card login-form">
+            <div class="card-body">
+                <h3 class="card-title text-center">Update User</h3>
+                <div class="card-text">
+                    <!--
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+                    <form (ngSubmit)="updateUserInfo()">
+                        <!-- to error: add class "has-danger" -->
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" name="email"[(ngModel)]="email" readonly>
+                        </div><br>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="text" class="form-control form-control-sm" name="password"[(ngModel)]="password" id="exampleInputPassword1">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Update User</button>
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+
+    </div>

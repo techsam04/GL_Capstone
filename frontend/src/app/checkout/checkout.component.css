@@ -1,0 +1,10 @@
+td,th{
+  font-size: small
+}
+.card-header{
+  background-color: #0d6efd;
+  color: white;
+}
+.container{
+  margin-top: 80px;
+}

@@ -1,0 +1,121 @@
+<div class="container mt-3">
+    <div class="col-md-12">
+        <div class="input-group mb-3">
+            <input type="text" (keyup.enter)="onKeyUp($event)" class="form-control" placeholder="Start shopping by searching" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2" style="color: #00ff37;">Search Here</span>
+            </div>
+          </div>
+    </div>
+</div>
+<div class="container">
+    <div class="column">
+        <div class="col-md-2">
+            <div class = "item">
+                <a (click)="filter('')">
+                    <img style ="width:400px;margin-top: 12px;" src="https://bsmedia.business-standard.com/_media/bs/img/article/2022-02/01/full/1643656870-7608.jpg" alt="">
+                    <h6 style="color:#00ff37;font-size: 35px;">All Products</h6>
+                </a>
+                <hr>
+           </div>
+        </div>
+        <div class="col-md-2">
+            <div class = "item">
+                <a (click)="filter('Electronics')">
+                <img style ="width:400px;margin-top: 12px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVgKdNK0C46FgCQ3L0IyKOLMol5vPNKaciF3wJubY2Ng&s" alt="">
+                <h6 style="color:#00ff37;font-size: 35px;">Electronics</h6>
+                </a>
+                <br/>
+                <hr>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class = "item">
+                <a (click)="filter('Mobiles')">
+                <img style ="width:400px;margin-top: 12px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbI09mRkxf_I6WFOpMic67IjpOrjD0oGb2mA&usqp=CAU" alt="">
+                <h6 style="color:#00ff37;font-size: 35px;">Mobiles </h6>
+                </a>
+                <hr>
+
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class = "item">
+                <a (click)="filter('Toys')">
+                <img  style ="width:400px;margin-top: 12px;" src="https://image.shutterstock.com/image-photo/toys-collection-isolated-on-background-260nw-1194433033.jpg" alt="">
+                <h6 style="color:#00ff37;font-size: 35px;">Toys</h6>
+                </a>
+                <hr>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class = "item">
+                <a (click)="filter('Fashion')">
+                <img  style ="width:400px;margin-top: 12px;"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVRmDCDzy_GJheaTc-7gZ02CBsW2Cypf2mKQ&usqp=CAU" alt="">
+                <h6 style="color:#00ff37;font-size: 35px;">Fashion</h6>
+                </a>
+                <hr>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class = "item">
+                <a (click)="filter('Grocery')">
+                <img  style ="width:400px;margin-top: 12px;" src="https://i.pinimg.com/originals/66/bf/64/66bf6482bd775818902991cd23470e94.jpg" alt="">
+                <h6 style="color:#2bff00;font-size: 35px;">Grocery</h6>
+                </a>
+                <hr>
+            </div>
+        </div>
+</div>
+</div>
+
+<div class="container mt-4" *ngIf="flag===false">
+        <div class="row">
+            <div *ngFor="let product of filterCategory | filter:searchKey:'pname'" class="col-lg-3">
+            <div class="card mt-4">
+                <div class="profile-pic">
+              <img src="{{product.url}}" class="rounded mx-auto d-block mt-4" style="width: 100px;height: 150px;" alt="...">
+              <div class="edit"><a (click)="addToWishlist(product)"><i class="fa fa-heart fa-lg"></i></a></div>
+            </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">{{product.pname}}</h5>
+              </div>
+              <ul class="list-group list-group-flush">
+            
+                <li class="list-group-item"><b>	&#x20B9;&nbsp;{{product.price}}</b> &nbsp;&nbsp;<del>{{product.price+100}}</del>&nbsp;&nbsp;<span>Save</span></li>
+                
+              </ul>
+              <div class="card-body text-center">
+                <button class="btn btn-primary"  (click)="addtocart(product)">Add to Cart</button>
+              </div>
+            </div>
+        </div>
+          </div>
+   </div>
+   <div class="container mt-4" *ngIf="flag===true">
+    <div class="row">
+        <div *ngFor="let product of items" class="col-lg-3">
+        <div class="card mt-4">
+            <div class="profile-pic">
+          <img src="{{product.url}}" class="rounded mx-auto d-block mt-4" style="width: 150px;height: 240px;" alt="...">
+          <div class="edit"><a (click)="addToWishlist(product)"><i class="fa fa-heart fa-lg"></i></a></div>
+        </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">{{product.pname}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+        
+            <li class="list-group-item"><b>	&#x20B9;&nbsp;{{product.price}}</b> &nbsp;&nbsp;<del>{{product.price+100}}</del>&nbsp;&nbsp;<span>Save</span></li>
+            
+          </ul>
+          <div class="card-body text-center">
+            <button class="btn btn-primary"  (click)="addtocart(product)">Add to Cart</button>
+          </div>
+        </div>
+    </div>
+      </div>
+</div>     
+
+    
+    
+

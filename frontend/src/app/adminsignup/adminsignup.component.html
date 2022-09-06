@@ -1,0 +1,55 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Admin Register</h1>
+                    <h6>Register Yourself!!</h6>
+                </div>
+                    <form  [formGroup]="signUpForm" #AdminRef="ngForm" (ngSubmit)="storeAdmin()">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" name="username" formControlName="username" class="form-control mt-1 mb-1">
+                            <div *ngIf="isSubmitted && formControls['username'].errors" class="mt-1 mb-1 error-div">
+                              <p *ngIf="formControls['username'].errors['required']">Username is required!</p>
+                              <p *ngIf="formControls['username'].errors['maxLength']">Username is Max 10 Character</p>
+                            </div>  
+                          </div>
+                          <div class="form-group">
+                            <label>Email</label>
+                            <input type="email"  name="email" formControlName="email" class="form-control mt-1 mb-1">
+                            <div *ngIf="isSubmitted && formControls['email'].errors" class="mt-1 mb-1 error-div">
+                              <p *ngIf="formControls['email'].errors['required']">Email is required!</p>
+                              <p *ngIf="formControls['email'].errors['pattern']">Incorrect email id!</p>
+                            </div>  
+                          </div>
+                          <div class="form-group">
+                            <label>Password</label>
+                            <input type="password"  name="password" formControlName="password" class="form-control mt-1 mb-1">
+                            <div *ngIf="isSubmitted && formControls['password'].errors" class="mt-1 mb-1 error-div">
+                              <p *ngIf="formControls['password'].errors['required']">Password is required!</p>
+                              <p *ngIf="formControls['password'].errors['pattern']">Password must have 4 to 8 characters and atleast one uppercase, one lowercase, and a digit!(Demo: x2z@dG1)</p>
+                            </div>  
+                          </div>
+                          <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" name="phone" formControlName="phone" class="form-control mt-1 mb-1">
+                            <div *ngIf="isSubmitted && formControls['phone'].errors" class="mt-1 mb-1 error-div">
+                              <p *ngIf="formControls['phone'].errors['required']">Phone is required!</p>
+                              <p *ngIf="formControls['phone'].errors['pattern']">Phone no. must be of 10 digits! Only Digit Allow</p>
+                            </div>  
+                          </div>
+                          <div class="col text-center">
+                        <button type="submit" class="btn btn-success mt-3">SignUp</button></div>
+                                            </form>
+                <a  style="color:#fff;margin-top: 10px;"routerLink="/adminlogin">Already Registered? Click to SignIn!!</a>
+                <br/>
+                <span style="color:red;font-size: 20px;">{{storeMsg}}</span>
+    
+            </div>
+        </div>
+    </div>
+</div>
+
+

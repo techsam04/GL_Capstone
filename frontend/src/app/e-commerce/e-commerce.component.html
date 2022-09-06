@@ -1,0 +1,114 @@
+
+    <app-admin></app-admin>
+
+    <div class="container mt-4">
+        <div class="col-md-8-content-center-mt-3">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+            <th scope="col">PId</th>
+            <th scope="col">PName</th>
+            <th scope="col">Price</th>
+            <th scope="col">Images</th>
+            <th scope="col">Category</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Update</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of products">
+                    <td>{{product.pid}}</td>
+                    <td>{{product.pname }}</td>
+                    <td>{{product.price}}</td>
+                    <td><img src={{product.url}} width="20px" heigth="20px"/> </td>
+                    <td>{{product.category}}</td>
+                    <td><a (click)="deleteProduct(product.pid)">
+                        <i id="delete" class="fas fa-trash"></i>
+                      </a>
+                    </td>
+                    <td><a (click)="updateProduct(product)">
+                        <i id="update" class="fas fa-edit"></i>
+                      </a>
+                    </td>
+                </tr>
+                </tbody>
+              </table>
+    </div>
+    </div>
+    
+    
+
+    <div *ngIf="flag">
+        <div class="global-container">
+            <div class="card login-form">
+            <div class="card-body">
+                <h3 class="card-title text-center">Update User</h3>
+                <div class="card-text">
+                    <!--
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+                    <form (ngSubmit)="updateProductPrice()">
+                        <!-- to error: add class "has-danger" -->
+                        <div class="form-group">
+                            <label for="pid">Product ID</label>
+                            <input type="text" class="form-control form-control-sm" id="pid" name="pid"[(ngModel)]="pid" readonly>
+                        </div><br>
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input type="text" class="form-control form-control-sm" name="price"[(ngModel)]="price" id="price">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Update Product</button>
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    <br/>
+        <div class="container">
+            
+        <div class="card-body" >
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">Add Product</legend>
+            <form #productRef="ngForm" (ngSubmit)="storeProduct(productRef)">
+                    <div class="form-group">
+                      <label for="productId">Product ID</label>
+                      <input type="text" class="form-control" id="productId" name="pid" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input type="text" class="form-control" id="productName" name="pname"  ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" class="form-control" id="price" name="price"  ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="url">Image Url</label>
+                        <input type="url" class="form-control" id="url" name="url"  ngModel>
+                    </div>
+                    <div class="form-group">
+                      <label for="quantity">Quantity</label>
+                      <input type="text" class="form-control" id="quantity" name="quantity"  ngModel>
+                  </div>
+                    <div class="form-group">
+                      <label for="category">Category</label>
+                      <select class="form-control"  name="category"  ngModel id="category">
+                        <option value="none">--Select Category--</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Mobiles">Mobiles</option>
+                        <option value="Toys">Toys</option>
+                        <option value="Fashion">Fashion</option>
+                        <option value="Grocery">Grocery</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary">Store Product</button>
+                    </div>
+                  </form></fieldset>
+            <br/>
+            <span style="color: deeppink; font-size: 20px;">{{storeMsg}}</span>
+            <hr/>
+            </div></div>
+
+

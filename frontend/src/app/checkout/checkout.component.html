@@ -1,0 +1,66 @@
+
+<section id ="cart-bottom" class="container">
+        <div class="row">
+    <div class="coupon  col-lg-6 col-md-6 col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+              Coupon
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>Enter your coupon code if you have one</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Coupon Code" aria-label="coupon" aria-describedby="basic-addon2" #coupon>
+                        <div class="input-group-append">
+                          <button  (click)="onKeyUp(coupon.value)" class="btn btn-outline-primary" type="button">Apply</button>
+                        </div>
+                      </div>
+                    <div *ngIf="flag===false">
+                        <p style="color: red;">{{msg}}</p>
+                    </div>
+                    <div *ngIf="flag===true">
+                        <p style="color: green;">{{msg}}</p>
+                    </div>
+              </blockquote>
+            </div>
+          </div>
+
+    </div>
+<div class="total  col-lg-6 col-md-6 col-12 ">
+
+    <div class="card">
+        <div class="card-header">
+          Cart Total
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th scope="row">Grand Total</th>
+                    <td>{{grandTotal | currency:'INR'}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Shipping Amount</th>
+                    <td>FREE</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Discount</th>
+                    <td>{{discountAmount}}</td>
+                  </tr>
+                  <hr class="second-hr">
+                  <tr>
+                    <th scope="row">Total</th>
+                    <td>{{grandTotal - discountAmount | currency:'INR'}}</td>
+                  </tr>
+                  </tbody>
+                  </table>
+          </blockquote>
+        </div>
+      </div>
+    <div>
+        </div>
+         
+
+<br/>
+<button  routerLink="/payment"  class="btn btn-primary">Proceed to Payment</button>

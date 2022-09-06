@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="logo">
+        <i style="font-size: 20px; margin-left: 10px; color:#00ff37; " class="fas fa-shopping-cart">&nbsp;
+  
+        </i>
+        <strong style="font-size: 30px; color:#00ff37">shop</strong></div>&nbsp;&nbsp;&nbsp;
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="adminlogin">Admin</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Products
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Electronics</a></li>
+              <li><a class="dropdown-item" href="#">Mobile</a></li>
+              <li><a class="dropdown-item" href="#">Grocery</a></li>
+              <li><a class="dropdown-item" href="#">Toys</a></li>
+              <li><a class="dropdown-item" href="#">Fashion</a></li>
+              <li><a class="dropdown-item" href="#">All products</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="!loggedIn()" class="nav-link" routerLink="userlogin" tabindex="-1" aria-disabled="true">Login/Register</a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="loggedIn()" class="nav-link" tabindex="-1" aria-disabled="true" (click)="logout()">Logout</a>
+          </li>
+        </ul>
+    
+  
+        <a routerLink="cart"  style="color:#00ff37">
+            <i id="icon"  class="fa fa-heart"></i>
+            <div class="badge bg-danger">{{totalWishlistItem}}</div>
+        </a>
+        <a routerLink="cart" style="color:#00ff37">
+            <i id="icon"class="fas fa-cart-plus"></i>
+            <div  class="badge bg-danger">{{totalItem}}</div>
+        </a>
+      </div>
+
+  </nav>
+
+<!-- <header>
+    <div class = "navbar navbar-dark bg-primary shadow-sm">
+     <div class="navbar-brand align-item-center d-flex">
+         <i style="font-size: 40px;" class="fas fa-shipping-fast">&nbsp;
+  
+         </i>
+         <strong style="font-size: 30px;">Shop For Home</strong>
+         </div>
+     <div >
+        <button  routerLink="products"  class="btn btn-primary mx-2">Home</button>
+        <button  routerLink="userregister"  class="btn btn-primary mx-2">User</button>
+        <button  routerLink="adminsignup"  class="btn btn-primary mx-2">Admin</button> 
+    </div>
+     <button routerLink="cart" class="btn btn-primary" style="margin-left: 500px;">
+        <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
+        <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
+    </button>
+    <button routerLink="cart" class="btn btn-primary">
+        <i style="font-size: 30px;" class="fa fa-heart"></i>
+        <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
+    </button>
+</div>
+  
+  </header> -->
+  
